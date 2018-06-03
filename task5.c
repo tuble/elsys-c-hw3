@@ -24,12 +24,14 @@ int main() {
     struct point_t p = {6, 5}; 
     struct point_t p1 = {9, 5};
     struct point_t p2 = {9, 12};
+    struct point_t p3 = {8, 10};
     struct rect_t r = {{8, 10}, 8, 10};
 
 
     printf("%d\n", contains(r, p));
     printf("%d\n", contains(r, p1));
     printf("%d\n", contains(r, p2));
+    printf("%d\n", contains(r, p3));
 
     printf("\n");
     return 0;
@@ -44,6 +46,6 @@ int contains(struct rect_t r, struct point_t p) {
         if(p.y <= upper_left_point.y && p.y >= bottom_right_point.y)
             return 1;
 
-            
+
     return 0;
 }
