@@ -1,15 +1,12 @@
 #include <stdio.h>
-#include <string.h>
 
 void transpose(char*, int);
 
-char *chords[12] = {"C", "Cm", "D", "Dm", "E", "F", "Fm", "G", "Gm", "A", "Am", "B"};
-
 int main() {
 
-    char *chord = "C";
+    char *chord = "Cm";
 
-    transpose(chord, 28); 
+    transpose(chord, 12); 
 
     printf("\n");
 
@@ -17,31 +14,30 @@ int main() {
 
 }
 
-
 void transpose(char *chord, int with) {
+
+    char *chords[12] = {"C", "Cm", "D", "Dm", "E", "F", "Fm", "G", "Gm", "A", "Am", "B"};
 
     int index = 0;
 
     for(int i = 0; i < 12; i++) {
 
-        if(strcmp(chords[i], chord) == 0) {
+        if(chord == chords[i]) {
+
             index = i;
             break;
-            
+
         }
+
     }
 
     index += with;
 
-    while(index > 11) {
-
+    while(index > 11) 
         index -= 12; 
-    }
 
-    while(index < 0) { // %= lmao
-
+    while(index < 0) 
         index += 12;
-    }
 
     printf("%s", chords[index]);
 }
